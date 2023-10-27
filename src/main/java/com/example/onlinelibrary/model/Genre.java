@@ -8,7 +8,7 @@ import java.util.Set;
 @Entity
 @Table(name = "Genres")
 @Data
-public class Genre {
+public class Genre implements Comparable<Genre> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +16,12 @@ public class Genre {
 
     private String name;
 
-    @OneToMany(mappedBy = "genre")
+    @OneToMany(mappedBy = "genre", fetch = FetchType.LAZY)
     private Set<Book> books;
+
+
+    @Override
+    public int compareTo(Genre o) {
+        return this.getName().compareTo(o.getName());
+    }
 }

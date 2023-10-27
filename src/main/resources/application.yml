@@ -9,3 +9,18 @@ spring:
     driverClassName: org.h2.Driver
   jpa:
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+
+
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: loggers, shutdown
+
+server:
+  shutdown: graceful
+  port: 9090
