@@ -19,6 +19,11 @@ public class Author implements Comparable<Author> {
     private String bio;
     private Date birthDate;
 
+    public Author(String lastName, String bio) {
+        this.lastName = lastName;
+        this.bio = bio;
+    }
+
     @Override
     public int compareTo(Author o) {
         int result = this.getFirstName().compareTo(o.getFirstName());
